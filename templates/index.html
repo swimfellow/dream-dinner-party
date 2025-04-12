@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Dinner Party</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="fade-in title">Dream Dinner</h1>
+    <h2 class="fade-in second">An app by Bluntool</h2>
+    <h3 class="fade-in third">A Swim J. Fellow corporation</h3>
+    <p class="fade-in intro">
+        Hello, {{ user }}. Let's construct the dinner party of your dreams.
+        <div class="fade-in button">
+            <button>Let's Go →</button>
+        </div>
+    </p>
+</body>
+</html>
