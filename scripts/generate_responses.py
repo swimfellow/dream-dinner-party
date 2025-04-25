@@ -14,7 +14,6 @@ def fetch_wikidata_info(entity_id):
     """
     Given a Wikidata entity ID (like 'Q12400'), fetch the English label, description, and Wikipedia URL.
     """
-    print(entity_id)
     url = f"https://www.wikidata.org/wiki/Special:EntityData/{entity_id}.json"
     response = requests.get(url)
 
@@ -34,10 +33,21 @@ def fetch_wikidata_info(entity_id):
     if 'enwiki' in sitelinks:
         wikipedia_url = sitelinks['enwiki']['url']
 
+    # Image (property P18)
+    image_url = None
+    claims = entity.get('claims', {})
+    if 'P18' in claims:
+        image_name = claims['P18'][0]['mainsnak']['datavalue']['value']
+        # Images are stored on Wikimedia Commons
+        # To construct the URL, we can use the special format:
+        # https://commons.wikimedia.org/wiki/Special:FilePath/<image_name>
+        image_url = f"https://commons.wikimedia.org/wiki/Special:FilePath/{image_name.replace(' ', '_')}"
+
     return {
         'label': label,
         'description': description,
-        'wikipedia_url': wikipedia_url
+        'wikipedia_url': wikipedia_url,
+        'image_url': image_url
     }
 
 def enrich_characters_dataframe(characters_df):
@@ -58,7 +68,9 @@ def enrich_characters_dataframe(characters_df):
     final_df = pd.concat([characters_df, enriched_df], axis=1)
     return final_df
 
+print("Getting real people data")
 people_enriched = enrich_characters_dataframe(people)
+print("Getting fictional character data")
 characters_enriched = enrich_characters_dataframe(characters)
 
 full_list = pd.concat([people_enriched, characters_enriched])

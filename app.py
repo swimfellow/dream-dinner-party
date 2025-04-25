@@ -14,17 +14,17 @@ def ddp(user=None):
 def survey(user):
     individual = get_next_individual(user)
     if individual:
-        return render_template('survey.html', user=user, individual=individual)
+        return render_template('survey.html', user=user, label=individual['label'], wikipedia_url=individual['wikipedia_url'], description=individual['description'], image_url=individual['image_url'])
     else:
         return "Thank you! Calculating..."
 
 @app.route("/submit", methods=["POST"])
 def submit():
     user = request.form.get("user")
-    individual = request.form.get("individual")
+    label = request.form.get("label")
     likert_response = request.form.get("likert")
 
-    update_response(user, individual, likert_response)
+    update_response(user, label, likert_response)
     return redirect(url_for('survey', user=user))
 
 def get_next_individual(user):
@@ -32,19 +32,21 @@ def get_next_individual(user):
         reader = csv.DictReader(csvfile)
         for row in reader:
             if row["user"] == user and row["likert_response"] == "":
-                return row["individual"]
+                return row
     return None
 
-def update_response(user, individual, likert_response):
+def update_response(user, label, likert_response):
     rows = []
+    fieldnames = None
     with open(CSV_FILE, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
+        fieldnames = reader.fieldnames  # <-- Capture the fieldnames!
         for row in reader:
-            if row["user"] == user and row["individual"] == individual and row["likert_response"] == "":
+            if row["user"] == user and row["label"] == label and row["likert_response"] == "":
                 row["likert_response"] = likert_response
             rows.append(row)
 
     with open(CSV_FILE, "w", newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=["user", "individual", "likert_response"])
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)

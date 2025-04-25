@@ -10,7 +10,6 @@ p{
     font-size: 16px;
     text-align: center;
     padding-top: 50px;
-    margin: 8px;
 }
 
 .intro{
@@ -95,4 +94,14 @@ p{
 .likert{
     text-align: center;
     padding: 0 auto;
+}
+
+#description{
+    font-size: 14px;
+    padding-top: 0px;
+    font-style: italic;
+}
+
+p a{
+    color: #c4c4c4;
 }
