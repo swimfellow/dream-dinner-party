@@ -25,6 +25,8 @@ def fetch_wikidata_info(entity_id):
 
     # Label and description
     label = entity.get('labels', {}).get('en', {}).get('value', None)
+    if label is None:
+        label = entity.get('sitelinks', {}).get('enwiki', {}).get('title', 'url')
     description = entity.get('descriptions', {}).get('en', {}).get('value', None)
 
     # English Wikipedia sitelink
