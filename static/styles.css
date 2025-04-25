@@ -1,0 +1,98 @@
+body{
+    background-color: #1a5c2b;
+    color: #c4c4c4;
+    font-family: "DM Serif Text", serif;
+    font-weight: 200;
+}
+
+p{
+    color: #f0f0f0;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 50px;
+    margin: 8px;
+}
+
+.intro{
+    animation-delay: 1.2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.fade-in {
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.6s;
+}
+
+.title{
+    font-size: 72px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 0.8;
+}
+
+.second {
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+    font-size: 36px;
+    opacity: 0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+.third {
+    animation-delay: 0.6s;
+    animation-fill-mode: forwards;
+    font-size: 19.2px;
+    opacity: 0;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.second-nofade {
+    font-size: 36px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.third-nofade {
+    font-size: 19.2px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.intro-nofade{
+    opacity: 1;
+    text-align: center;
+}
+
+.button{
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    text-align: center;
+    margin: 0;
+    
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.likert{
+    text-align: center;
+    padding: 0 auto;
+}

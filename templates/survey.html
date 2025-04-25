@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Dinner Party</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="title">Dream Dinner</h1>
+    <h2 class="second-nofade">An app by Bluntool</h2>
+    <h3 class="third-nofade">A Swim J. Fellow corporation</h3>
+    <form class="intro-nofade likert" action="{{ url_for('submit') }}" method="post">
+        <p>How do you feel about {{ individual }}?</p>
+        <label><input type="radio" name="likert" value="1"> Get them out of here</label><br>
+        <label><input type="radio" name="likert" value="2"> Unpleasant</label><br>
+        <label><input type="radio" name="likert" value="3"> Eh</label><br>
+        <label><input type="radio" name="likert" value="4"> We could chill</label><br>
+        <label><input type="radio" name="likert" value="5"> They need to be present</label><br><br>
+        <input type="hidden" name="user" value="{{ user }}">
+        <input type="hidden" name="individual" value="{{ individual }}">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
