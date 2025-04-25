@@ -4,7 +4,7 @@ This repo exists to facilitate organization of code for the Dream Dinner Party p
 Roadmap of development:
 - [x] Create choice interface
 - [ ] Test
-    - [ ] Pull 1000 people from Wikidata
+    - [x] Pull 1000 people from Wikidata
     - [ ] Choose!
 - [ ] Create code to generate best characteristics
 - [ ] Create code to suggest more people
