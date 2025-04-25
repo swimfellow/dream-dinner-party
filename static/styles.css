@@ -44,6 +44,7 @@ p{
     padding: 0;
 }
 
+
 .third {
     animation-delay: 0.6s;
     animation-fill-mode: forwards;
@@ -52,6 +53,25 @@ p{
     text-align: center;
     margin: 0;
     padding: 0;
+}
+
+.second-nofade {
+    font-size: 36px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.third-nofade {
+    font-size: 19.2px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.intro-nofade{
+    opacity: 1;
+    text-align: center;
 }
 
 .button{
@@ -70,4 +90,9 @@ p{
 	100% {
 		opacity: 1;
 	}
+}
+
+.likert{
+    text-align: center;
+    padding: 0 auto;
 }
