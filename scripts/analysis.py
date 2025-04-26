@@ -58,7 +58,7 @@ ORDER BY DESC(?matches)
 
 
 # Main function
-def get_common_features(entity_list, output_csv_name='top_property_value_pairs.csv'):
+def get_common_features(entity_list, output_csv_name='output/top_property_value_pairs.csv'):
     entities = entity_list['person'].tolist()
     strength = entity_list['likert_response'].tolist()
     strength = [s*2 for s in strength]  # fix typo
@@ -152,4 +152,4 @@ def get_common_features(entity_list, output_csv_name='top_property_value_pairs.c
 
 # Run it
 get_common_features(dream)
-get_common_features(nightmare, output_csv_name='bottom_property_value_pairs.csv')
+get_common_features(nightmare, output_csv_name='output/bottom_property_value_pairs.csv')
