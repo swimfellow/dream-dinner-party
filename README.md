@@ -11,3 +11,4 @@ Roadmap of development:
 - [ ] **APRIL 26** - Present!
 - [ ] Create code to generate best characteristics
 - [ ] Create code to suggest more people
+- [ ] Convert to web backend
