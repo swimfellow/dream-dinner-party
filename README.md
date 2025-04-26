@@ -6,8 +6,8 @@ Roadmap of development:
 - [ ] Test
     - [x] Pull 1000 people from Wikidata
     - [ ] Choose!
-- [ ] Create code to generate best characteristics
-- [ ] Create code to suggest more people
 - [ ] **APRIL 25** - v1.0
 - [ ] **APRIL 25** - Launch presentation
 - [ ] **APRIL 26** - Present!
+- [ ] Create code to generate best characteristics
+- [ ] Create code to suggest more people
