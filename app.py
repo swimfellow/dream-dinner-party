@@ -14,7 +14,17 @@ def ddp(user=None):
 def survey(user):
     individual = get_next_individual(user)
     if individual:
-        return render_template('survey.html', user=user, label=individual['label'], wikipedia_url=individual['wikipedia_url'], description=individual['description'], image_url=individual['image_url'])
+        return render_template(
+    'survey.html',
+    user=user,
+    label=individual['label'],
+    wikipedia_url=individual['wikipedia_url'],
+    description=individual['description'],
+    image_url=individual['image_url'],
+    completed=individual['progress']['completed'],
+    total=individual['progress']['total']
+)
+
     else:
         return "Thank you! Calculating..."
 
@@ -30,9 +40,24 @@ def submit():
 def get_next_individual(user):
     with open(CSV_FILE, newline='') as csvfile:
         reader = csv.DictReader(csvfile)
-        for row in reader:
-            if row["user"] == user and row["likert_response"] == "":
-                return row
+        rows = list(reader)
+        user_rows = [row for row in rows if row["user"] == user]
+        total = len(user_rows)
+        completed = sum(1 for row in user_rows if row["likert_response"] != "")
+        
+        for row in user_rows:
+            if row["likert_response"] == "":
+                # Return both the individual and progress data
+                return {
+                    'label': row['label'],
+                    'wikipedia_url': row['wikipedia_url'],
+                    'description': row['description'],
+                    'image_url': row['image_url'],
+                    'progress': {
+                        'completed': completed,
+                        'total': total
+                    }
+                }
     return None
 
 def update_response(user, label, likert_response):

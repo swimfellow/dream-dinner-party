@@ -109,3 +109,9 @@ p a{
 img{
     max-height: 300px;
 }
+
+.progress-container{
+    position: absolute;
+    bottom: 0px;
+    right: 10px;
+}
