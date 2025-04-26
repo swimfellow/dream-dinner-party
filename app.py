@@ -48,6 +48,8 @@ def get_next_individual(user):
         for row in user_rows:
             if row["likert_response"] == "":
                 # Return both the individual and progress data
+                if row["wikipedia_url"] == "":
+                    row["wikipedia_url"] = "https://www.google.com/search?q="+row['label']
                 return {
                     'label': row['label'],
                     'wikipedia_url': row['wikipedia_url'],
