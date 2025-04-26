@@ -38,7 +38,7 @@ def submit():
     return redirect(url_for('survey', user=user))
 
 def get_next_individual(user):
-    with open(CSV_FILE, newline='') as csvfile:
+    with open(CSV_FILE, newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         rows = list(reader)
         user_rows = [row for row in rows if row["user"] == user]
@@ -63,7 +63,7 @@ def get_next_individual(user):
 def update_response(user, label, likert_response):
     rows = []
     fieldnames = None
-    with open(CSV_FILE, newline='') as csvfile:
+    with open(CSV_FILE, newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         fieldnames = reader.fieldnames  # <-- Capture the fieldnames!
         for row in reader:
@@ -71,7 +71,7 @@ def update_response(user, label, likert_response):
                 row["likert_response"] = likert_response
             rows.append(row)
 
-    with open(CSV_FILE, "w", newline='') as csvfile:
+    with open(CSV_FILE, "w", newline='', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(rows)
