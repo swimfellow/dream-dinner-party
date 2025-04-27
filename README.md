@@ -6,7 +6,7 @@ Running this application locally requires Python >=3.13.0 and dependencies sugge
 python scripts/generate_responses.py
 flask run
 ```
-Then, terminate the flask app and run:
+Navigate to http://localhost:5000/swimfellow. Once done, terminate the flask app and run:
 ```
 python scripts/analysis.py
 ```
