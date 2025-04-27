@@ -4,7 +4,7 @@ import requests
 people = pd.read_csv('wikidata/people.csv')
 characters = pd.read_csv('wikidata/characters.csv')
 
-n = 1000
+n = 500
 ratio = 0.5
 
 people = people.sample(n=round(n*ratio))
