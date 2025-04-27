@@ -13,7 +13,7 @@ python scripts/analysis.py
 
 Roadmap of development:
 - [x] Create choice interface
-- [ ] Test
+- [x] Test
     - [x] Pull ~~1000~~500 people from Wikidata
     - [x] Choose!
 - [x] **APRIL 25** - v~~1.0~~Beta.1
