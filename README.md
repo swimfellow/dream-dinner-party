@@ -1,7 +1,7 @@
 # Dream Dinner Party
 This repo exists to facilitate organization of code for the Dream Dinner Party project.
 
-Running this application locally requires Python >-3.13.0 and dependencies suggested from each python script. To run locally, simply run:
+Running this application locally requires Python >=3.13.0 and dependencies suggested from each python script. To run locally, simply run:
 ```
 python scripts/generate_responses.py
 flask run
